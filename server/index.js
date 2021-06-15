@@ -45,6 +45,10 @@ app.use(
 //Routes.
 app.use(router);
 
+app.get("/health", (req, res) => {
+  res.send("Server is up to date.");
+});
+
 //Global error handler. Because I don't like status code 500 for every error.
 app.use(errorHandler);
 
