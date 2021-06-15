@@ -12,6 +12,7 @@ module.exports.solve = async function solve(req, res, next) {
     }
 
     let result = TicTacToeRepo.solve(values);
+    console.log(result);
     if (result.score == 10) {
       res.status(200).json({
         data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -22,7 +23,7 @@ module.exports.solve = async function solve(req, res, next) {
         data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
         message: "User wins!",
       });
-    } else if (!result.index) {
+    } else if (!result.hasOwnProperty("index")) {
       res.status(200).json({
         data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
         message: "Game Tie!",
