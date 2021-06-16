@@ -47,6 +47,7 @@ const Container = styled.div`
 
 const TurnText = styled.h3`
   font-size: 4rem;
+  margin-top: 0px;
   color: ${theme.colors.white};
   font-weight: 300;
   margin-bottom: 2rem !important;
