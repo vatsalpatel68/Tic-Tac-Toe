@@ -43,6 +43,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: 992px) {
+    width: 80%;
+  }
 `;
 
 const TurnText = styled.h3`
@@ -108,6 +111,16 @@ class StartGame extends React.PureComponent {
       },
       this.computerTurn
     );
+     this.props
+      .makePostRequest("/", {
+        values: this.state.values,
+      })
+      .then((res) => {
+        this.setState(
+          {
+            values: res.data.data,
+            userTurn: true,
+          },
   };
 
   render() {
@@ -121,6 +134,16 @@ class StartGame extends React.PureComponent {
             {this.state.userTurn ? "Your Turn !" : "My Turn !"}
           </TurnText>
           <Box>
+           this.props
+      .makePostRequest("/", {
+        values: this.state.values,
+      })
+      .then((res) => {
+        this.setState(
+          {
+            values: res.data.data,
+            userTurn: true,
+          },
             {this.state.values.length > 0 &&
               this.state.values.map((once, index) => {
                 return (
