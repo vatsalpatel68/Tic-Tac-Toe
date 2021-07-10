@@ -85,6 +85,14 @@ class JoinMatch extends React.PureComponent {
           ></Input>
           <Button onClick={this.joinMatch}>Join match</Button>
         </Box>
+
+        {this.state.hasRedirect && <Redirect to="/start-game" />}
+        {this.state.showWarning && (
+          <SnackBar message={this.state.errorMessage} />
+        )}
+        <Box>
+          <Input
+            type=
       </>
     );
   }
