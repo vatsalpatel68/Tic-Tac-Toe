@@ -36,6 +36,24 @@ module.exports.solve = async function solve(req, res, next) {
     }
   } catch (err) {
     console.log("SOLVE ::: ", err);
+    
+     if (result.score == 10) {
+      res.status(200).json({
+        data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        message: "Computer wins!",
+      });
+    } else if (result.score == -10) {
+      res.status(200).json({
+        data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        message: "User wins!",
+      });
+    } else if (!result.hasOwnProperty("index")) {
+      res.status(200).json({
+        data: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        message: "Game Tie!",
+      });
+    } else {
+      values[result.index] = "O";
     next(err);
   }
 };
